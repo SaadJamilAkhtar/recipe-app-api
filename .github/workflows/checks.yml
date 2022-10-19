@@ -16,6 +16,7 @@ jobs :
       - name : Checkout
         uses : actions/checkout@v2
       - name : Test
-        run : docker-compose run --rm app sh -c "export SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} && python manage.py test"
+        run : docker-compose run --rm app sh -c "export SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} && \
+              python manage.py test"
       - name : Linting
         run : docker-compose run --rm app sh -c "flake8"
